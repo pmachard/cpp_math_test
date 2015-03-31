@@ -112,6 +112,21 @@ public :
 
 		END_UNIT_TEST("TestOperatorMult")
 	}
+	
+	void TestOperatorMultBis(void)
+	{
+		BEGIN_UNIT_TEST("TestOperatorMultBis")
+
+			SimpleVector2D v1(1.5, -2.3);
+			SimpleVector2D v2(0.5, -2);
+			SimpleVector2D v3 = v1 * v2;
+			v3*=0.75;
+
+			CheckEqual(v3.GetX(), v1.GetX() * v2.GetX() , "Error in multiplication operator");
+			CheckEqual(v3.GetY(), v1.GetY() * v2.GetY() , "Error in multiplication operator");
+
+		END_UNIT_TEST("TestOperatorMultBis")
+	}	
 
 	void TestOperatorDiv(void)
 	{
@@ -152,6 +167,7 @@ public :
 		TestOperatorAdd();
 		TestOperatorSupp();
 		TestOperatorMult();
+		TestOperatorMultBis();
 		TestOperatorDiv();
 		
 		TestOperatorEqualDiff();
