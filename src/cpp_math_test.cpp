@@ -156,11 +156,26 @@ public :
 			SimpleVector2D v2(1.5, -2.3);
 			SimpleVector2D v3(1.0, 2.3);
 			
-			CheckEqual(v1 == v2 , "Error in division operator");
-			CheckEqual(v1 != v3 , "Error in division operator");
+			Check(v1 == v2 , "Error in division operator");
+			Check(v1 != v3 , "Error in division operator");
 
 		END_UNIT_TEST("TestOperatorEqualDiff")
 	}	
+	
+	void TestOperatorEqualProdScal(void)
+	{
+		BEGIN_UNIT_TEST("TestOperatorEqualProdScal")
+
+			SimpleVector2D v1(1.5, -2.3);
+			SimpleVector2D v2(1.5, -2.3);
+			
+			double result = v1^v2;
+
+			CheckEqual(result,(v1.m_x * v2.m_y) - (v1.m_y * v2.m_x) , "Error in product scalar");
+
+		END_UNIT_TEST("TestOperatorEqualProdScal")
+	}	
+	
 
 	void Run()
 	{
@@ -172,6 +187,7 @@ public :
 		TestOperatorMult();
 		TestOperatorMultBis();
 		TestOperatorDiv();
+		TestOperatorEqualProdScal();
 		
 		TestOperatorEqualDiff();
 
