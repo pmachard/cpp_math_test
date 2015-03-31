@@ -129,6 +129,20 @@ public :
 
 		END_UNIT_TEST("TestOperatorDiv")
 	}
+	
+	void TestOperatorEqualDiff(void)
+	{
+		BEGIN_UNIT_TEST("TestOperatorEqualDiff")
+
+			SimpleVector2D v1(1.5, -2.3);
+			SimpleVector2D v2(1.5, -2.3);
+			SimpleVector2D v3(1.0, 2.3);
+			
+			CheckEqual(v1 == v2 , "Error in division operator");
+			CheckEqual(v1 != v3 , "Error in division operator");
+
+		END_UNIT_TEST("TestOperatorEqualDiff")
+	}	
 
 	void Run()
 	{
@@ -139,6 +153,8 @@ public :
 		TestOperatorSupp();
 		TestOperatorMult();
 		TestOperatorDiv();
+		
+		TestOperatorEqualDiff();
 
 		PrintStat();
 
