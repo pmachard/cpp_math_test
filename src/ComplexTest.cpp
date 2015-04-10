@@ -3,14 +3,14 @@
 #include <iostream>
 #include <string>
 #include "../../cpp_unit_test/UnitTest.h"
-#include "../../cpp_math_lib/SimpleComplex.h"
+#include "../../cpp_math_lib/Complex.h"
 
 using namespace prj::math;
 using namespace prj::unit_test;
-class TestSimpleComplex : public UnitTest
+class TestComplex : public UnitTest
 {
 public :
-	TestSimpleComplex() : UnitTest("TestSimpleComplex")
+	TestComplex() : UnitTest("TestComplex")
 	{
 	}
 	void TestConstructors(void)
@@ -27,7 +27,7 @@ public :
 };
 int main(void)
 {
-TestSimpleVector2D T1;
+TestComplex T1;
 T1.Run();
 return 0;
 }
