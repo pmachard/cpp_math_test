@@ -16,6 +16,8 @@ public :
 	void TestConstructors(void)
 	{
 		BEGIN_UNIT_TEST("TestConstructors")
+		Complex c1;
+		Check(c1.GetReal() == 0.0 && C1.GetImag() == 0.0,"Error in the default constuctor");
 		END_UNIT_TEST("TestConstructors")
 	}
 	
