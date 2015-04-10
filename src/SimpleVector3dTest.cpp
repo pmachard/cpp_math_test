@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 #include "../../cpp_unit_test/UnitTest.h"
-#include "../../cpp_math_lib/SimpleVector2D.h"
+#include "../../cpp_math_lib/SimpleVector3D.h"
 using namespace prj::math;
 using namespace prj::unit_test;
 
@@ -206,7 +206,7 @@ public :
 
 int main(void)
 {
-  TestSimpleVector2D T1;
+  TestSimpleVector3D T1;
   T1.Run();
   return 0;
 }
