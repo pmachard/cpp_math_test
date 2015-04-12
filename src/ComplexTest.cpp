@@ -17,13 +17,13 @@ public :
 	{
 		BEGIN_UNIT_TEST("TestConstructors")
 		Complex c1;
-		Check(c1.GetReal() == 0.0 && C1.GetImag() == 0.0,"Error in the default constuctor");
+		Check(c1.GetReal() == 0.0 && c1.GetImag() == 0.0,"Error in the default constuctor");
 		
 		Complex c2(1.0,2.0);
-		Check(c2.GetReal() == 1.0 && C2.GetImag() == 2.0,"Error in the param constuctor");
+		Check(c2.GetReal() == 1.0 && c2.GetImag() == 2.0,"Error in the param constuctor");
 		
 		Complex *pc3 = new Complex(c2);
-		Check(c2.GetReal() == pc3->GetReal() && C2.GetImag() == pc3->GetImag(),"Error in the copy constuctor");
+		Check(c2.GetReal() == pc3->GetReal() && c2.GetImag() == pc3->GetImag(),"Error in the copy constuctor");
 		END_UNIT_TEST("TestConstructors")
 	}
 	

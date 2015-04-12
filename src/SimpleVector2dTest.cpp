@@ -20,7 +20,6 @@ public :
 	void TestConstructors(void)
 	{
 		BEGIN_UNIT_TEST("TestConstructors")
-
 			SimpleVector2D * pv3;
 			SimpleVector2D v1;
 			SimpleVector2D v2(1.0, 2.0);
@@ -35,14 +34,12 @@ public :
 	void TestOperatorAffectation(void)
 	{
 		BEGIN_UNIT_TEST("TestOperatorAffectation")
-
 			SimpleVector2D v1(1.0, 2.0);
 			SimpleVector2D v2,v3;
 			v3 = v2 = v1;
 
 			Check(v2.GetX() == v1.GetX() && v2.GetY() == v1.GetY(), "Error in affection operator");
 			Check(v3.GetX() == v1.GetX() && v3.GetY() == v1.GetY(), "Error in affection operator");
-
 		END_UNIT_TEST("TestOperatorAffectation")
 	}
 
@@ -53,8 +50,8 @@ public :
 			SimpleVector2D v1(-1.0, -2.0);
 			SimpleVector2D v2 = v1.abs();
 
-			CheckEqual(v2.GetX(),-v1.GetX(), "Error in affection Abs function");
-			CheckEqual(v2.GetY(),-v1.GetY(), "Error in affection Abs function");
+			Check(v2.GetX() == -v1.GetX(), "Error in affection Abs function");
+			Check(v2.GetY() == -v1.GetY(), "Error in affection Abs function");
 
 		END_UNIT_TEST("TestABs")
 	}
@@ -62,36 +59,32 @@ public :
 	void TestOperatorAdd(void)
 	{
 		BEGIN_UNIT_TEST("TestOperatorAdd")
-
 			SimpleVector2D v1(1.5, -2.3);
 			SimpleVector2D v2(0.7, 0.33);
 			SimpleVector2D v3 = v1 + v2;
 			SimpleVector2D v4 = v1;
 			v4+=v2;
 
-			CheckEqual(v3.GetX(), v1.GetX() + v2.GetX() , "Error in additional operator");
-			CheckEqual(v3.GetY(), v1.GetY() + v2.GetY() , "Error in additional operator");
-			CheckEqual(v4.GetX(), v1.GetX() + v2.GetX() , "Error in additional operator");
-			CheckEqual(v4.GetY(), v1.GetY() + v2.GetY() , "Error in additional operator");
-
+			Check(v3.GetX() == (v1.GetX() + v2.GetX()) , "Error in additional operator");
+			Check(v3.GetY() == (v1.GetY() + v2.GetY()) , "Error in additional operator");
+			Check(v4.GetX() == (v1.GetX() + v2.GetX()) , "Error in additional operator");
+			Check(v4.GetY() == (v1.GetY() + v2.GetY()) , "Error in additional operator");
 		END_UNIT_TEST("TestOperatorAdd")
 	}
 
 	void TestOperatorSupp(void)
 	{
 		BEGIN_UNIT_TEST("TestOperatorSupp")
-
 			SimpleVector2D v1(1.5, -2.3);
 			SimpleVector2D v2(0.7, 0.33);
 			SimpleVector2D v3 = v1 - v2;
 			SimpleVector2D v4 = v1;
 			v4-=v2;
 
-			CheckEqual(v3.GetX(), v1.GetX() - v2.GetX() , "Error in diff operator");
-			CheckEqual(v3.GetY(), v1.GetY() - v2.GetY() , "Error in diff operator");
-			CheckEqual(v4.GetX(), v1.GetX() - v2.GetX() , "Error in diff operator");
-			CheckEqual(v4.GetY(), v1.GetY() - v2.GetY() , "Error in diff operator");
-
+			Check(v3.GetX() == (v1.GetX() - v2.GetX()) , "Error in diff operator");
+			Check(v3.GetY() == (v1.GetY() - v2.GetY()) , "Error in diff operator");
+			Check(v4.GetX() == (v1.GetX() - v2.GetX()) , "Error in diff operator");
+			Check(v4.GetY() == (v1.GetY() - v2.GetY()) , "Error in diff operator");
 		END_UNIT_TEST("TestOperatorSupp")
 	}
 
@@ -104,10 +97,10 @@ public :
 			SimpleVector2D v3 = v1;
 			v3*=0.75;
 
-			CheckEqual(v2.GetX(), v1.GetX() * 0.75 , "Error in multiplication operator");
-			CheckEqual(v2.GetY(), v1.GetY() * 0.75 , "Error in multiplication operator");
-			CheckEqual(v3.GetX(), v1.GetX() * 0.75 , "Error in multiplication operator");
-			CheckEqual(v3.GetY(), v1.GetY() * 0.75 , "Error in multiplication operator");
+			Check(v2.GetX() == v1.GetX() * 0.75 , "Error in multiplication operator");
+			Check(v2.GetY() == v1.GetY() * 0.75 , "Error in multiplication operator");
+			Check(v3.GetX() == v1.GetX() * 0.75 , "Error in multiplication operator");
+			Check(v3.GetY() == v1.GetY() * 0.75 , "Error in multiplication operator");
 
 		END_UNIT_TEST("TestOperatorMult")
 	}
@@ -122,10 +115,10 @@ public :
 			SimpleVector2D v4 = v1;
 			v4*=v2;
 
-			CheckEqual(v3.GetX(), v1.GetX() * v2.GetX() , "Error in multiplication operator");
-			CheckEqual(v3.GetY(), v1.GetY() * v2.GetY() , "Error in multiplication operator");
-			CheckEqual(v4.GetX(), v1.GetX() * v2.GetX() , "Error in multiplication operator");
-			CheckEqual(v4.GetY(), v1.GetY() * v2.GetY() , "Error in multiplication operator");
+			Check(v3.GetX() == v1.GetX() * v2.GetX() , "Error in multiplication operator");
+			Check(v3.GetY() == v1.GetY() * v2.GetY() , "Error in multiplication operator");
+			Check(v4.GetX() == v1.GetX() * v2.GetX() , "Error in multiplication operator");
+			Check(v4.GetY() == v1.GetY() * v2.GetY() , "Error in multiplication operator");
 
 		END_UNIT_TEST("TestOperatorMultBis")
 	}	
@@ -139,10 +132,10 @@ public :
 			SimpleVector2D v3 = v1;
 			v3/=0.75;
 
-			CheckEqual(v2.GetX(), v1.GetX() / 0.75 , "Error in division operator");
-			CheckEqual(v2.GetY(), v1.GetY() / 0.75 , "Error in division operator");
-			CheckEqual(v3.GetX(), v1.GetX() / 0.75 , "Error in division operator");
-			CheckEqual(v3.GetY(), v1.GetY() / 0.75 , "Error in division operator");
+			Check(v2.GetX() == v1.GetX() / 0.75 , "Error in division operator");
+			Check(v2.GetY() == v1.GetY() / 0.75 , "Error in division operator");
+			Check(v3.GetX() == v1.GetX() / 0.75 , "Error in division operator");
+			Check(v3.GetY() == v1.GetY() / 0.75 , "Error in division operator");
 
 		END_UNIT_TEST("TestOperatorDiv")
 	}
@@ -170,7 +163,7 @@ public :
 			
 			double result = v1^v2;
 
-			CheckEqual(result,(v1.m_x * v2.m_y) - (v1.m_y * v2.m_x) , "Error in product scalar");
+			Check(result == (v1.m_x * v2.m_y) - (v1.m_y * v2.m_x) , "Error in product scalar");
 
 		END_UNIT_TEST("TestOperatorEqualProdScal")
 	}	
