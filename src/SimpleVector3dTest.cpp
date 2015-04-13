@@ -185,6 +185,19 @@ public :
 		END_UNIT_TEST("TestOperatorEqualProdScal")
 	}
 	
+	void TestMakeVector(void)
+	{
+		BEGIN_UNIT_TEST("TestMakeVector")
+		SimpleVector3D v1(1.0, -2.0, 3.0);
+		SimpleVector3D v2 = v1.MakeXYZ();
+		Check(result == (v1.m_x == v2.m_x) && (v1.m_y == v2.m_y) && (v1.m_z == v2.m_z) , "Error in method MakeXYZ");
+		
+		v2 = v1.MakeXXX();
+		Check(result == (v2.m_x == v1.m_x) && (v2.m_y == v1.m_x) && (v2.m_z == v1.m_x) , "Error in method MakeXXX");
+		
+		END_UNIT_TEST("TestMakeVector")
+	}	
+	
 	void Run()
 	{
 		TestConstructors();
