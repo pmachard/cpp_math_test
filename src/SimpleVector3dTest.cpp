@@ -195,6 +195,21 @@ public :
 		v2 = v1.MakeXXX();
 		Check(result == (v2.m_x == v1.m_x) && (v2.m_y == v1.m_x) && (v2.m_z == v1.m_x) , "Error in method MakeXXX");
 		
+		v2 = v1.MakeYYY();
+		Check(result == (v2.m_x == v1.m_y) && (v2.m_y == v1.m_y) && (v2.m_z == v1.m_y) , "Error in method MakeYYY");
+		
+		v2 = v1.MakeZZZ();
+		Check(result == (v2.m_x == v1.m_z) && (v2.m_y == v1.m_z) && (v2.m_z == v1.m_z) , "Error in method MakeZZZ");
+		
+		v2 = v1.MakeYZX();
+		Check(result == (v2.m_x == v1.m_y) && (v2.m_y == v1.m_z) && (v2.m_z == v1.m_x) , "Error in method MakeYZX");
+		
+		v2 = v1.MakeZXY();
+		Check(result == (v2.m_x == v1.m_z) && (v2.m_y == v1.m_x) && (v2.m_z == v1.m_y) , "Error in method MakeZXY");
+		
+		v2 = v1.MakeZYX();
+		Check(result == (v2.m_x == v1.m_z) && (v2.m_y == v1.m_y) && (v2.m_z == v1.m_x) , "Error in method MakeZYX");
+		
 		END_UNIT_TEST("TestMakeVector")
 	}	
 	
