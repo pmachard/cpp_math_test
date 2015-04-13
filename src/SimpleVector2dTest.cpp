@@ -161,16 +161,16 @@ public :
 		BEGIN_UNIT_TEST("TestMakeVector")
 		SimpleVector2D v1(1.0, -2.0);
 		SimpleVector2D v2 = v1.MakeXY();
-		Check(result == (v1.m_x == v2.m_x) - (v1.m_y == v2.m_y) , "Error in method MakeXY");
+		Check(result == (v1.m_x == v2.m_x) && (v2.m_y == v1.m_y) , "Error in method MakeXY");
 		
 		v2 = v1.MakeXX();
-		Check(result == (v2.m_x == v1.m_x) - (v2.m_y == v2.m_x) , "Error in method MakeXX");
+		Check(result == (v2.m_x == v1.m_x) && (v2.m_y == v1.m_x) , "Error in method MakeXX");
 		
 		v2 = v1.MakeYX();
-		Check(result == (v2.m_x == v1.m_y) - (v2.m_y == v2.m_x) , "Error in method MakeYX");
+		Check(result == (v2.m_x == v1.m_y) && (v2.m_y == v1.m_x) , "Error in method MakeYX");
 		
 		v2 = v1.MakeYX();
-		Check(result == (v2.m_x == v1.m_y) - (v2.m_y == v2.m_y) , "Error in method MakeYY");
+		Check(result == (v2.m_x == v1.m_y) && (v2.m_y == v1.m_y) , "Error in method MakeYY");
 		END_UNIT_TEST("TestMakeVector")
 	}	
 
