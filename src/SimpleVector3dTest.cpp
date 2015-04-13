@@ -185,32 +185,57 @@ public :
 		END_UNIT_TEST("TestOperatorEqualProdScal")
 	}
 	
-	void TestMakeVector(void)
+	void TestMakeVector3D(void)
 	{
-		BEGIN_UNIT_TEST("TestMakeVector")
+		BEGIN_UNIT_TEST("TestMakeVector3D")
 		SimpleVector3D v1(1.0, -2.0, 3.0);
 		SimpleVector3D v2 = v1.MakeXYZ();
-		Check(result == (v1.m_x == v2.m_x) && (v1.m_y == v2.m_y) && (v1.m_z == v2.m_z) , "Error in method MakeXYZ");
+		Check(result == (v1.GetX() == v2.GetX()) && (v1.GetY() == v2.GetY()) && (v1.GetZ() == v2.GetZ()) , "Error in method MakeXYZ");
 		
 		v2 = v1.MakeXXX();
-		Check(result == (v2.m_x == v1.m_x) && (v2.m_y == v1.m_x) && (v2.m_z == v1.m_x) , "Error in method MakeXXX");
+		Check(result == (v2.GetX() == v1.GetX()) && (v2.GetY() == v1.GetX()) && (v2.GetZ() == v1.GetX()) , "Error in method MakeXXX");
 		
 		v2 = v1.MakeYYY();
-		Check(result == (v2.m_x == v1.m_y) && (v2.m_y == v1.m_y) && (v2.m_z == v1.m_y) , "Error in method MakeYYY");
+		Check(result == (v2.GetX() == v1.GetY()) && (v2.GetY() == v1.GetY()) && (v2.GetZ() == v1.GetY()) , "Error in method MakeYYY");
 		
 		v2 = v1.MakeZZZ();
-		Check(result == (v2.m_x == v1.m_z) && (v2.m_y == v1.m_z) && (v2.m_z == v1.m_z) , "Error in method MakeZZZ");
+		Check(result == (v2.GetX() == v1.GetZ()) && (v2.GetY() == v1.GetZ()) && (v2.GetZ() == v1.GetZ()) , "Error in method MakeZZZ");
 		
 		v2 = v1.MakeYZX();
-		Check(result == (v2.m_x == v1.m_y) && (v2.m_y == v1.m_z) && (v2.m_z == v1.m_x) , "Error in method MakeYZX");
+		Check(result == (v2.GetX() == v1.GetY()) && (v2.GetY() == v1.GetZ()) && (v2.GetZ() == v1.GetX()) , "Error in method MakeYZX");
 		
 		v2 = v1.MakeZXY();
-		Check(result == (v2.m_x == v1.m_z) && (v2.m_y == v1.m_x) && (v2.m_z == v1.m_y) , "Error in method MakeZXY");
+		Check(result == (v2.GetX() == v1.GetZ()) && (v2.GetY() == v1.GetX()) && (v2.GetZ() == v1.GetY()) , "Error in method MakeZXY");
 		
 		v2 = v1.MakeZYX();
-		Check(result == (v2.m_x == v1.m_z) && (v2.m_y == v1.m_y) && (v2.m_z == v1.m_x) , "Error in method MakeZYX");
+		Check(result == (v2.GetX() == v1.GetZ()) && (v2.GetY() == v1.GetY()) && (v2.GetZ() == v1.GetX()) , "Error in method MakeZYX");
 		
-		END_UNIT_TEST("TestMakeVector")
+		END_UNIT_TEST("TestMakeVector3D")
+	}	
+
+	void TestMakeVector2D(void)
+	{
+		BEGIN_UNIT_TEST("TestMakeVector2D")
+		SimpleVector3D v1(1.0, -2.0, 3.0);
+		SimpleVector2D v2 = v1.MakeXY();
+		Check(result == (v2.GetX() == v1.GetX())) && (v2.GetY() == v1.GetY(), "Error in method MakeXY");
+		
+		v2 = v1.MakeYX();
+		Check(result == (v2.GetX() == v1.GetY()) && (v2.GetY() == v1.GetX(), "Error in method MakeYX");
+		
+		v2 = v1.MakeXZ();
+		Check(result == (v2.GetX() == v1.GetX()) && (v2.GetY() == v1.GetZ(), "Error in method MakeXZ");
+		
+		v2 = v1.MakeZX();
+		Check(result == (v2.GetX() == v1.GetZ()) && (v2.GetY() == v1.GetX(), "Error in method MakeZX");
+
+		v2 = v1.MakeYZ();
+		Check(result == (v2.GetX() == v1.GetY()) && (v2.GetY() == v1.GetZ(), "Error in method MakeYZ");
+		
+		v2 = v1.MakeZY();
+		Check(result == (v2.GetX() == v1.GetZ()) && (v2.GetY() == v1.GetY(), "Error in method MakeZY");
+
+		END_UNIT_TEST("TestMakeVector2D")
 	}	
 	
 	void Run()
@@ -226,6 +251,8 @@ public :
 		TestOperatorEqualProdScal();
 		
 		TestOperatorEqualDiff();
+		TestMakeVector3D();
+		TestMakeVector2D();
 		
 		PrintStat();
 	}
