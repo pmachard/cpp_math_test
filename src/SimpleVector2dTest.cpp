@@ -156,9 +156,9 @@ public :
 		END_UNIT_TEST("TestOperatorEqualProdScal")
 	}	
 
-	void TestHandleCoord(void)
+	void TestMakeVector(void)
 	{
-		BEGIN_UNIT_TEST("TestHandleCoord")
+		BEGIN_UNIT_TEST("TestMakeVector")
 		SimpleVector2D v1(1.0, -2.0);
 		SimpleVector2D v2 = v1.MakeXY();
 		Check(result == (v1.m_x == v2.m_x) - (v1.m_y == v2.m_y) , "Error in method MakeXY");
@@ -171,7 +171,7 @@ public :
 		
 		v2 = v1.MakeYX();
 		Check(result == (v2.m_x == v1.m_y) - (v2.m_y == v2.m_y) , "Error in method MakeYY");
-		END_UNIT_TEST("TestHandleCoord")
+		END_UNIT_TEST("TestMakeVector")
 	}	
 
 	void Run()
@@ -185,7 +185,7 @@ public :
 		TestOperatorMultBis();
 		TestOperatorDiv();
 		TestOperatorEqualProdScal();
-		TestHandleCoord();
+		TestMakeVector();
 		
 		TestOperatorEqualDiff();
 
