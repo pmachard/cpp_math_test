@@ -237,6 +237,17 @@ public :
 
 		END_UNIT_TEST("TestMakeVector2D")
 	}	
+
+	void TestLength(void)
+	{
+		BEGIN_UNIT_TEST("TestLength")
+		SimpleVector3D v1(2.0, 3.0, 5.0);
+
+		Check(v1.LengthSquared == (v1.GetX()*v1.GetX()+v1.GetY()*v1.GetY()+v1.GetZ()*v1.GetZ()), "Error in method LengthSquared");
+
+		END_UNIT_TEST("TestLength")
+	}	
+	
 	
 	void Run()
 	{
@@ -253,6 +264,8 @@ public :
 		TestOperatorEqualDiff();
 		TestMakeVector3D();
 		TestMakeVector2D();
+		
+		TestLength();
 		
 		PrintStat();
 	}
