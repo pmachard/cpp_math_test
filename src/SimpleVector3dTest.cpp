@@ -194,7 +194,7 @@ public :
 		
 		v2 = v1.MakeXXX();
 		Check(result == (v2.GetX() == v1.GetX()) && (v2.GetY() == v1.GetX()) && (v2.GetZ() == v1.GetX()) , "Error in method MakeXXX");
-		
+
 		v2 = v1.MakeYYY();
 		Check(result == (v2.GetX() == v1.GetY()) && (v2.GetY() == v1.GetY()) && (v2.GetZ() == v1.GetY()) , "Error in method MakeYYY");
 		
