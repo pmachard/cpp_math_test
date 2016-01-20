@@ -65,9 +65,18 @@ void main()
 	double de[3] = { 1.0, -1.0, -3.333 };
 	VectorXd<double, 3> e1(de);
 	VectorXd<double, 3> f1 = e1.abs();
-	assert(f1[_X_] == abs(f1[_X_]));
-	assert(f1[_Y_] == abs(f1[_Y_]));
-	assert(f1[_Z_] == abs(f1[_Z_]));
+	assert(f1[_X_] == abs(e1[_X_]));
+	assert(f1[_Y_] == abs(e1[_Y_]));
+	assert(f1[_Z_] == abs(e1[_Z_]));
+	std::cout << "OK";
+
+	std::cout << "\nCheck operator == :";
+	assert(b1 == b1);
+	assert(b1 == c1);
+	std::cout << "OK";
+
+	std::cout << "\nCheck operator != :";
+	assert(f1 != e1);
 	std::cout << "OK";
 
 	std::cout << "\nCheck operator += ";
