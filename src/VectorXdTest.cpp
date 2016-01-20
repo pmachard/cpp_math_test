@@ -14,32 +14,32 @@ void main()
 
 	std::cout << "\nCheck default constructeur : ";
 	VectorXd<double, 3> a1;
-	assert(a1[X] == (double)0.0);
-	assert(a1[Y] == (double)0.0);
-	assert(a1[Z] == (double)0.0);
+	assert(a1[_X_] == (double)0.0);
+	assert(a1[_Y_] == (double)0.0);
+	assert(a1[_Z_] == (double)0.0);
 	std::cout << "OK";
 
 
 	std::cout << "\nCheck constructeur with tab : ";
 	VectorXd<double, 3> b1(data);
-	assert(b1[X] == (double)0.0);
-	assert(b1[Y] == (double)1.0);
-	assert(b1[Z] == (double)2.0);
+	assert(b1[_X_] == (double)0.0);
+	assert(b1[_Y_] == (double)1.0);
+	assert(b1[_Z_] == (double)2.0);
 	std::cout << "OK";
 
 	std::cout << "\nCheck constructeur with copie : ";
 	VectorXd<double, 3> c1(b1);
-	assert(c1[X] == (double)0.0);
-	assert(c1[Y] == (double)1.0);
-	assert(c1[Z] == (double)2.0);
+	assert(c1[_X_] == (double)0.0);
+	assert(c1[_Y_] == (double)1.0);
+	assert(c1[_Z_] == (double)2.0);
 	std::cout << "OK";
 
 	std::cout << "\nCheck operator = : ";
 	VectorXd<double, 3> d1;
 	d1 = c1;
-	assert(d1[X] == (double)0.0);
-	assert(d1[Y] == (double)1.0);
-	assert(d1[Z] == (double)2.0);
+	assert(d1[_X_] == (double)0.0);
+	assert(d1[_Y_] == (double)1.0);
+	assert(d1[_Z_] == (double)2.0);
 	std::cout << "OK";
 
 	std::cout << "\nCheck operator [] out of limit : ";
@@ -65,76 +65,111 @@ void main()
 	double de[3] = { 1.0, -1.0, -3.333 };
 	VectorXd<double, 3> e1(de);
 	VectorXd<double, 3> f1 = e1.abs();
-	assert(f1[X] == abs(f1[X]));
-	assert(f1[Y] == abs(f1[Y]));
-	assert(f1[Z] == abs(f1[Z]));
+	assert(f1[_X_] == abs(f1[_X_]));
+	assert(f1[_Y_] == abs(f1[_Y_]));
+	assert(f1[_Z_] == abs(f1[_Z_]));
 	std::cout << "OK";
 
 	std::cout << "\nCheck operator += ";
 	VectorXd<double, 3> g1(de);
 	g1 += b1;
-	assert(g1[X] == e1[X] + b1[X]);
-	assert(g1[Y] == e1[Y] + b1[Y]);
-	assert(g1[Z] == e1[Z] + b1[Z]);
+	assert(g1[_X_] == e1[_X_] + b1[_X_]);
+	assert(g1[_Y_] == e1[_Y_] + b1[_Y_]);
+	assert(g1[_Z_] == e1[_Z_] + b1[_Z_]);
 	std::cout << "OK";
 
 	std::cout << "\nCheck operator + ";
 	VectorXd<double, 3> h1 = d1 + b1;
-	assert(h1[X] == d1[X] + b1[X]);
-	assert(h1[Y] == d1[Y] + b1[Y]);
-	assert(h1[Z] == d1[Z] + b1[Z]);
+	assert(h1[_X_] == d1[_X_] + b1[_X_]);
+	assert(h1[_Y_] == d1[_Y_] + b1[_Y_]);
+	assert(h1[_Z_] == d1[_Z_] + b1[_Z_]);
 	std::cout << "OK";
 
 	std::cout << "\nCheck operator -= ";
 	VectorXd<double, 3> i1(de);
 	i1 -= b1;
-	assert(i1[X] == e1[X] - b1[X]);
-	assert(i1[Y] == e1[Y] - b1[Y]);
-	assert(i1[Z] == e1[Z] - b1[Z]);
+	assert(i1[_X_] == e1[_X_] - b1[_X_]);
+	assert(i1[_Y_] == e1[_Y_] - b1[_Y_]);
+	assert(i1[_Z_] == e1[_Z_] - b1[_Z_]);
 	std::cout << "OK";
 
 	std::cout << "\nCheck operator - ";
 	VectorXd<double, 3> j1 = d1 - b1;
-	assert(j1[X] == d1[X] - b1[X]);
-	assert(j1[Y] == d1[Y] - b1[Y]);
-	assert(j1[Z] == d1[Z] - b1[Z]);
+	assert(j1[_X_] == d1[_X_] - b1[_X_]);
+	assert(j1[_Y_] == d1[_Y_] - b1[_Y_]);
+	assert(j1[_Z_] == d1[_Z_] - b1[_Z_]);
 	std::cout << "OK";
 
 	std::cout << "\nCheck operator *= ";
 	VectorXd<double, 3> k1(d1);
 	k1 *= 3.5;
-	assert(k1[X] == d1[X] * 3.5);
-	assert(k1[Y] == d1[Y] * 3.5);
-	assert(k1[Z] == d1[Z] * 3.5);
+	assert(k1[_X_] == d1[_X_] * 3.5);
+	assert(k1[_Y_] == d1[_Y_] * 3.5);
+	assert(k1[_Z_] == d1[_Z_] * 3.5);
 	std::cout << "OK";
 
 	std::cout << "\nCheck operator * ";
 	VectorXd<double, 3> l1 = d1 * 3.5;
-	assert(l1[X] == d1[X] * 3.5);
-	assert(l1[Y] == d1[Y] * 3.5);
-	assert(l1[Z] == d1[Z] * 3.5);
+	assert(l1[_X_] == d1[_X_] * 3.5);
+	assert(l1[_Y_] == d1[_Y_] * 3.5);
+	assert(l1[_Z_] == d1[_Z_] * 3.5);
 	std::cout << "OK";
 
 	std::cout << "\nCheck operator /= ";
 	VectorXd<double, 3> m1(d1);
 	m1 /= 3.5;
-	assert(m1[X] == d1[X] / 3.5);
-	assert(m1[Y] == d1[Y] / 3.5);
-	assert(m1[Z] == d1[Z] / 3.5);
+	assert(m1[_X_] == d1[_X_] / 3.5);
+	assert(m1[_Y_] == d1[_Y_] / 3.5);
+	assert(m1[_Z_] == d1[_Z_] / 3.5);
 	std::cout << "OK";
 
 	std::cout << "\nCheck operator / ";
 	VectorXd<double, 3> n1 = d1 / 3.5;
-	assert(n1[X] == d1[X] / 3.5);
-	assert(n1[Y] == d1[Y] / 3.5);
-	assert(n1[Z] == d1[Z] / 3.5);
+	assert(n1[_X_] == d1[_X_] / 3.5);
+	assert(n1[_Y_] == d1[_Y_] / 3.5);
+	assert(n1[_Z_] == d1[_Z_] / 3.5);
 	std::cout << "OK";
 
 	std::cout << "\nCheck ... ";
 	std::cout << "OK";
 
-	std::cout << "\n\n";
+	std::cout << "\nCheck Vector1d constructeur with value ";
+	Vector1d<double> v00(0.1);
+	assert(v00[_X_] == 0.1);
+	assert(v00.getX() == 0.1);
+	std::cout << "OK";
 
+	std::cout << "\nCheck Vector2d constructeur with value ";
+	Vector2d<double> v01(0.1, 0.2);
+	assert(v01[_X_] == 0.1);
+	assert(v01[_Y_] == 0.2);
+	assert(v01.getX() == 0.1);
+	assert(v01.getY() == 0.2);
+	std::cout << "OK";
+
+	std::cout << "\nCheck Vector3d constructeur with value ";
+	Vector3d<double> v02(0.1, 0.2,0.3);
+	assert(v02[_X_] == 0.1);
+	assert(v02[_Y_] == 0.2);
+	assert(v02[_Z_] == 0.3);
+	assert(v02.getX() == 0.1);
+	assert(v02.getY() == 0.2);
+	assert(v02.getZ() == 0.3);
+	std::cout << "OK";
+
+	std::cout << "\nCheck Vector4d constructeur with value ";
+	Vector4d<double> v03(0.1, 0.2, 0.3, 0.4);
+	assert(v03[_X_] == 0.1);
+	assert(v03[_Y_] == 0.2);
+	assert(v03[_Z_] == 0.3);
+	assert(v03[_T_] == 0.4);
+	assert(v03.getX() == 0.1);
+	assert(v03.getY() == 0.2);
+	assert(v03.getZ() == 0.3);
+	assert(v03.getT() == 0.4);
+	std::cout << "OK";
+
+	std::cout << "\n\n";
 
 }
 
