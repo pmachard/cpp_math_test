@@ -156,6 +156,16 @@ void main()
 	assert(v01.getY() == 0.2);
 	std::cout << "OK";
 
+	std::cout << "\nCheck Vector2d operator ^ : ";
+	Vector2d<double> v01a(0.1, 0.2);
+	Vector2d<double> v01b(0.3, 0.4);
+	assert((v01a ^ v01b) == ((0.1*0.4) - (0.2*0.3)));
+	std::cout << "OK";
+
+	std::cout << "\nCheck Vector2d LengthSquared : ";
+	assert(v01.LengthSquared() == (0.1*0.1 + 0.2*0.2));
+	std::cout << "OK";
+
 	std::cout << "\nCheck Vector3d constructeur with value ";
 	Vector3d<double> v02(0.1, 0.2,0.3);
 	assert(v02[_X_] == 0.1);
