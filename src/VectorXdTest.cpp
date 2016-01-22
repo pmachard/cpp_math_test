@@ -181,6 +181,18 @@ void main()
 	assert(abs(v01c.Length()- 1.0) < ESPILON);
 	std::cout << "OK";
 
+	std::cout << "\nCheck Vector2d static Normalize : ";
+	Vector2d<double> v01d = Vector2d<double>::Normalize(v01);
+	assert(abs(v01d.Length() - 1.0) < ESPILON);
+	std::cout << "OK";
+
+	std::cout << "\nCheck Vector2d static Distance : ";
+	assert(Vector2d<double>::Distance(Vector2d<double>(.0, .0), Vector2d<double>(.0, .0)) == 0);
+	assert(Vector2d<double>::Distance(Vector2d<double>(1.0, .0), Vector2d<double>(.0, .0)) == 1.0);
+	assert(Vector2d<double>::Distance(Vector2d<double>(0.0, 1.0), Vector2d<double>(.0, .0)) == 1.0);
+	assert(Vector2d<double>::Distance(Vector2d<double>(5, 10), Vector2d<double>(9, 7)) == 5.0);
+	std::cout << "OK";
+
 	std::cout << "\n---------------------------------------------------------------------";
 	std::cout << "\nVector3d";
 	std::cout << "\nCheck Vector3d constructeur with value ";
