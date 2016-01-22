@@ -205,6 +205,40 @@ void main()
 	assert(v02.getZ() == 0.3);
 	std::cout << "OK";
 
+	std::cout << "\nCheck Vector3d operator ^ : ";
+	Vector3d<double> v02a(0.1, 0.2,0.3);
+	Vector3d<double> v02b(0.4, 0.5,0.6);
+	assert((v02a ^ v02b) == ((0.1*0.4) + (0.2*0.5) + (0.3*0.6)));
+	std::cout << "OK";
+
+	std::cout << "\nCheck Vector3d LengthSquared : ";
+	assert(v02.SquaredLength() == (0.1*0.1 + 0.2*0.2 + 0.3 * 0.3));
+	std::cout << "OK";
+
+	std::cout << "\nCheck Vector3d Length : ";
+	assert(v02.Length() == sqrt(0.1*0.1 + 0.2*0.2 + 0.3*0.3));
+	std::cout << "OK";
+
+	std::cout << "\nCheck Vector3d Normalize : ";
+	Vector3d<double> v02c(v02);
+	v02c.Normalize();
+	assert(abs(v02c.Length() - 1.0) < ESPILON);
+	std::cout << "OK";
+
+	std::cout << "\nCheck Vector3d static Normalize : ";
+	Vector3d<double> v02d = Vector3d<double>::Normalize(v02);
+	assert(abs(v02d.Length() - 1.0) < ESPILON);
+	std::cout << "OK";
+
+	std::cout << "\nCheck Vector3d static Distance : ";
+	assert(Vector3d<double>::Distance(Vector3d<double>(.0, .0, .0), Vector3d<double>(.0, .0, .0)) == 0);
+	assert(Vector3d<double>::Distance(Vector3d<double>(1.0, .0, .0), Vector3d<double>(.0, .0, .0)) == 1.0);
+	assert(Vector3d<double>::Distance(Vector3d<double>(0.0, 1.0, .0), Vector3d<double>(.0, .0, .0)) == 1.0);
+	assert(Vector3d<double>::Distance(Vector3d<double>(5, 10, .0), Vector3d<double>(9, 7, .0)) == 5.0);
+	assert(Vector3d<double>::Distance(Vector3d<double>(5, .0, 10), Vector3d<double>(9, .0, 7)) == 5.0);
+	std::cout << "OK";
+
+
 	std::cout << "\n---------------------------------------------------------------------";
 	std::cout << "\nVector4d";
 	std::cout << "\nCheck Vector4d constructeur with value ";
