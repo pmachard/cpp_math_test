@@ -110,6 +110,15 @@ void main()
 	assert(j1[_Z_] == d1[_Z_] - b1[_Z_]);
 	std::cout << "OK";
 
+	std::cout << "\nCheck VectorXd operator - ";
+	double dj1a[3] = { 1.0, -2.0, -3.0 };
+	VectorXd<double, 3> j1a(dj1a);
+	VectorXd<double, 3> j1b = j1a.operator-();
+	assert(dj1a[_X_] == -j1a[_X_]);
+	assert(dj1a[_Y_] == -j1b[_Y_]);
+	assert(dj1a[_Z_] == -j1b[_Z_]);
+	std::cout << "OK";
+
 	std::cout << "\nCheck VectorXd operator *= ";
 	VectorXd<double, 3> k1(d1);
 	k1 *= 3.5;
@@ -190,10 +199,10 @@ void main()
 	assert(Vector2d<double>::AxisY().getY() == 1.0);
 	std::cout << "OK";
 
-	std::cout << "\nCheck Vector2d operator ^ : ";
+	std::cout << "\nCheck Vector2d operator * : ";
 	Vector2d<double> v01a(0.1, 0.2);
 	Vector2d<double> v01b(0.3, 0.4);
-	assert((v01a ^ v01b) == ((0.1*0.4) - (0.2*0.3)));
+	assert((v01a * v01b) == ((0.1*0.4) - (0.2*0.3)));
 	std::cout << "OK";
 
 	std::cout << "\nCheck Vector2d LengthSquared : ";
@@ -220,6 +229,23 @@ void main()
 	assert(Vector2d<double>::Distance(Vector2d<double>(1.0, .0), Vector2d<double>(.0, .0)) == 1.0);
 	assert(Vector2d<double>::Distance(Vector2d<double>(0.0, 1.0), Vector2d<double>(.0, .0)) == 1.0);
 	assert(Vector2d<double>::Distance(Vector2d<double>(5, 10), Vector2d<double>(9, 7)) == 5.0);
+	std::cout << "OK";
+
+	std::cout << "\nCheck Vector2d SetX et SetY : ";
+	Vector2d<double> v01e(0.1, 0.2);
+	v01e.setX(1.0);
+	v01e.setY(2.0);
+	assert(v01e.getX() == 1.0);
+	assert(v01e.getY() == 2.0);
+	std::cout << "OK";
+
+	
+	std::cout << "\nCheck Vector2d IsNormalized : ";
+	Vector2d<double> v01f(0.1, 0.2);
+	assert(v01f.IsNormalized() == false);
+	v01f.setX(1.0);
+	v01f.setY(0.0);
+	assert(v01f.IsNormalized() == true);
 	std::cout << "OK";
 
 	std::cout << "\n---------------------------------------------------------------------";
@@ -261,7 +287,7 @@ void main()
 	std::cout << "\nCheck Vector3d operator ^ : ";
 	Vector3d<double> v02a(0.1, 0.2,0.3);
 	Vector3d<double> v02b(0.4, 0.5,0.6);
-	assert((v02a ^ v02b) == ((0.1*0.4) + (0.2*0.5) + (0.3*0.6)));
+	assert((v02a * v02b) == ((0.1*0.4) + (0.2*0.5) + (0.3*0.6)));
 	std::cout << "OK";
 
 	std::cout << "\nCheck Vector3d LengthSquared : ";
@@ -291,6 +317,35 @@ void main()
 	assert(Vector3d<double>::Distance(Vector3d<double>(5, .0, 10), Vector3d<double>(9, .0, 7)) == 5.0);
 	std::cout << "OK";
 
+	std::cout << "\nCheck Vector3d operator  : ";
+	
+	Vector3d<double> v02e(1, 0, 3);
+	Vector3d<double> v02f(-2, 7, 8);
+	Vector3d<double> v02g(	v02e.getY() * v02f.getZ() - v02e.getZ() * v02f.getY(),
+							v02e.getZ() * v02f.getX() - v02e.getX() * v02f.getZ(),
+							v02e.getX() * v02f.getY() - v02e.getY() * v02f.getX());
+	Vector3d<double> v02h = v02e^v02f;
+	assert(v02h == v02g);
+	std::cout << "OK";
+
+	std::cout << "\nCheck Vector3d SetX et SetY et SetZ : ";
+	Vector3d<double> v02i(0.1, 0.2, 0.3);
+	v02i.setX(1.0);
+	v02i.setY(2.0);
+	v02i.setZ(3.0);
+	assert(v02i.getX() == 1.0);
+	assert(v02i.getY() == 2.0);
+	assert(v02i.getZ() == 3.0);
+	std::cout << "OK";
+
+	std::cout << "\nCheck Vector3d IsNormalized : ";
+	Vector3d<double> v02j(0.1, 0.2,0.3);
+	assert(v02j.IsNormalized() == false);
+	v02j.setX(1.0);
+	v02j.setY(0.0);
+	v02j.setZ(0.0);
+	assert(v02j.IsNormalized() == true);
+	std::cout << "OK";
 
 	std::cout << "\n---------------------------------------------------------------------";
 	std::cout << "\nVector4d";
@@ -306,7 +361,19 @@ void main()
 	assert(v03.getT() == 0.4);
 	std::cout << "OK";
 
-	std::cout << "\n\n";
+	std::cout << "\nCheck Vector4d SetX et SetY et SetZ et SetT : ";
+	Vector4d<double> v03a(0.1, 0.2, 0.3, 0.4);
+	v03a.setX(1.0);
+	v03a.setY(2.0);
+	v03a.setZ(3.0);
+	v03a.setT(4.0);
+	assert(v03a.getX() == 1.0);
+	assert(v03a.getY() == 2.0);
+	assert(v03a.getZ() == 3.0);
+	assert(v03a.getT() == 4.0);
+	std::cout << "OK";
 
+
+	std::cout << "\n\n";
 }
 
