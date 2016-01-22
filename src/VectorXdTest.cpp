@@ -9,6 +9,7 @@ using namespace std;
 
 void main()
 {
+	const double ESPILON = 10e-10;
 
 	double data[3] = { 0.0, 1.0, 2.0 };
 
@@ -142,13 +143,17 @@ void main()
 	std::cout << "\nCheck ... ";
 	std::cout << "OK";
 
-	std::cout << "\nCheck Vector1d constructeur with value ";
+	std::cout << "\n---------------------------------------------------------------------";
+	std::cout << "\nVector1d";
+	std::cout << "\nCheck Vector1d constructeur with value : ";
 	Vector1d<double> v00(0.1);
 	assert(v00[_X_] == 0.1);
 	assert(v00.getX() == 0.1);
 	std::cout << "OK";
 
-	std::cout << "\nCheck Vector2d constructeur with value ";
+	std::cout << "\n---------------------------------------------------------------------";
+	std::cout << "\nVector2d";
+	std::cout << "\nCheck Vector2d constructeur with value : ";
 	Vector2d<double> v01(0.1, 0.2);
 	assert(v01[_X_] == 0.1);
 	assert(v01[_Y_] == 0.2);
@@ -163,9 +168,21 @@ void main()
 	std::cout << "OK";
 
 	std::cout << "\nCheck Vector2d LengthSquared : ";
-	assert(v01.LengthSquared() == (0.1*0.1 + 0.2*0.2));
+	assert(v01.SquaredLength() == (0.1*0.1 + 0.2*0.2));
 	std::cout << "OK";
 
+	std::cout << "\nCheck Vector2d Length : ";
+	assert(v01.Length() == sqrt(0.1*0.1 + 0.2*0.2));
+	std::cout << "OK";
+
+	std::cout << "\nCheck Vector2d Normalize : ";
+	Vector2d<double> v01c(v01);
+	v01c.Normalize();
+	assert(abs(v01c.Length()- 1.0) < ESPILON);
+	std::cout << "OK";
+
+	std::cout << "\n---------------------------------------------------------------------";
+	std::cout << "\nVector3d";
 	std::cout << "\nCheck Vector3d constructeur with value ";
 	Vector3d<double> v02(0.1, 0.2,0.3);
 	assert(v02[_X_] == 0.1);
@@ -176,6 +193,8 @@ void main()
 	assert(v02.getZ() == 0.3);
 	std::cout << "OK";
 
+	std::cout << "\n---------------------------------------------------------------------";
+	std::cout << "\nVector4d";
 	std::cout << "\nCheck Vector4d constructeur with value ";
 	Vector4d<double> v03(0.1, 0.2, 0.3, 0.4);
 	assert(v03[_X_] == 0.1);
