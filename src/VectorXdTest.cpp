@@ -1,4 +1,6 @@
 #include "stdafx.h"
+#include <list>
+#include <vector>
 #include <iostream>
 #include <cassert>
 
@@ -373,6 +375,19 @@ void main()
 	assert(v03a.getT() == 4.0);
 	std::cout << "OK";
 
+	std::cout << "\n---------------------------------------------------------------------";
+	double dataExp2[2][3] = { { 0.0, 1.0, 2.0 }, { 3.0, 4.0, 5.0 } };
+
+	std::cout << "\nCheck double[][] to list of Vector3d  : ";
+	list<Vector3d<double>> lPoint = Vector3d<double>::ToList((double*)dataExp2, 2);
+	std::cout << "OK";
+	std::cout << "\nCheck double[][] to vector of Vector3d  : ";
+	vector<Vector3d<double>> vPoint = Vector3d<double>::ToVector((double*)dataExp2, 2);
+	std::cout << "OK";
+
+
+	std::cout << "\n---------------------------------------------------------------------";
+	std::cout << "\n---------------------------------------------------------------------";
 
 	std::cout << "\n\n";
 }
